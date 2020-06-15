@@ -1,6 +1,5 @@
 # Cookbook
 - A book of recipies By Russell Abernethy -
-Goal:
 
 
 Current features:
