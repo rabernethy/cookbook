@@ -1,11 +1,23 @@
 # A Cookbook Program By: Russell Abernethy
 
+Current ToDo List:
+- Sorted Lists (name, prep time, ect.)
+
+- Recipe Recommender (based on on hand ingredients)
+
+- UI ?
 
 Current features:
 
-- Can create recipes which contain:
+  - Can create recipes which contain:
 
   - The name of the dish
+  
+  - Prep time of a dish
+  
+  - Cook time of a dish
+  
+  - The number of servings a dish will make
   
   - Ingredients in that recipe
   
@@ -30,6 +42,8 @@ Cookbook:
   - Create a list of recipes sorted by total cook time
   
   - Take user input of ingredients and a percentage and output a list of what the user can cook with what they have on hand sorted by highest to lowest percentage 
+  
+  - Add a favorites list
   
   
 Misc:
