@@ -11,19 +11,19 @@ Current features:
 
   - Can create recipes which contain:
 
-  - The name of the dish
+    - The name of the dish
   
-  - Prep time of a dish
+    - Prep time of a dish
   
-  - Cook time of a dish
+    - Cook time of a dish
   
-  - The number of servings a dish will make
+    - The number of servings a dish will make
   
-  - Ingredients in that recipe
+    - Ingredients in that recipe
   
-  - Instructions for making that recipe
+    - Instructions for making that recipe
   
-  - A list of ingredients with measurements and without measurements
+    - A list of ingredients with measurements and without measurements
   
 - Can create a cookbook which contains:
 
