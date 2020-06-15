@@ -33,7 +33,7 @@ Current features:
   
 Planned Features:
   
-Cookbook:
+- Cookbook:
 
   - Create a list of recipes sorted by name
   
@@ -46,7 +46,7 @@ Cookbook:
   - Add a favorites list
   
   
-Misc:
+- Misc:
 
   - UI that allows for easy addition of recipes
   
