@@ -1,5 +1,4 @@
-# Cookbook
-- A book of recipies By Russell Abernethy -
+# A Cookbook Program By: Russell Abernethy
 
 
 Current features:
@@ -36,3 +35,12 @@ Cookbook:
   - Create a list of recipes sorted by total cook time
   
   - Take user input of ingredients and a percentage and output a list of what the user can cook with what they have on hand sorted by highest to lowest percentage 
+  
+  
+Misc:
+
+  - UI that allows for easy addition of recipes
+  
+  - allow for photos of the dish to be added and accessed
+  
+  - allow user to chose a dish and get a print out of all the instructions
