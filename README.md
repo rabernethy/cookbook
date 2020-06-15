@@ -5,7 +5,7 @@ Current ToDo List:
 
 - Recipe Recommender (based on on hand ingredients)
 
-- UI ?
+- UI ? (possibly QT designer)
 
 Current features:
 
