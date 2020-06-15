@@ -21,11 +21,9 @@ Current features:
   
   - A list of all ingredients (without measurements) used in recipes in the cookbook
   
-  
-  
 Planned Features:
 
-- Recipes:
+Recipes:
 
 - List the prep time, cook time, and number of servings 
   
