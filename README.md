@@ -5,7 +5,8 @@ Current ToDo List:
 
 - Recipe Recommender (based on on hand ingredients)
 
-- UI ? (possibly QT designer)
+- UI (research pyqt5 https://pypi.org/project/PyQt5/
+https://www.youtube.com/watch?v=FVpho_UiDAY)
 
 Current features:
 
