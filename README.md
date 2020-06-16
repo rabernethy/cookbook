@@ -32,6 +32,8 @@ Current features:
   
   - A list of all ingredients (without measurements) used in recipes in the cookbook
   
+  - Take user input of ingredients and a percentage and output a list of what the user can cook with what they have on hand sorted by highest to lowest percentage 
+  
 Planned Features:
   
 - Cookbook:
@@ -41,8 +43,6 @@ Planned Features:
   - Create a list of recipes sorted by servings
   
   - Create a list of recipes sorted by total cook time
-  
-  - Take user input of ingredients and a percentage and output a list of what the user can cook with what they have on hand sorted by highest to lowest percentage 
   
   - Add a favorites list
   
