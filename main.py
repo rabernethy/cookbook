@@ -7,24 +7,14 @@ class Recipe:
         self.servings = servings
         self.ingr = ingr
         self.inst = inst
-        #Create a list of ingredients without the measurments so that it can be searched later.
-        measurment_types = ['teaspoons','tablespoons','pounds','ounces','pints','milliliters','liters','kilograms','grams','cups','teaspoon','tablespoon','pound','ounce','pint','milliliter','liter','kilogram','gram','cup']
+
         ingr_no_meas = []
-        for x in ingr:
-           for y in measurment_types:
-               #If there measurement unit in the string, remove it and everything that comes before it.
-               if y in x:
-                  ingr_no_meas.append(x[(x.rfind(y)+len(y)+1):])
-                  break
-               if y == measurment_types[len(measurment_types)-1]:
-                   #Handles the case of there being no numbers in ingredient description and no formating is needed.
-                   if x.isalpha():
-                      ingr_no_meas.append(x)
-                      break
-                    #Handles case of there being a number in the string.
-                   ingr_no_meas.append(x[(x.find(" ")+1):])
+        for ingredient in ingr:
+            ingr_no_meas.append(remove_measurement(ingredient))
         self.ingr_no_meas = ingr_no_meas
+
     def num_ingredients(self):
+        #Returns the number of ingredients in a recipe.
         return len(self.ingr)
 
     def list_ingredients(self):
@@ -80,6 +70,24 @@ class CookBook:
         return returned_recipes
 
 
+#Helper Functions:
+    #possibly move this function inside the recipe class
+def remove_measurement(ingredient):
+    #Takes a string that represents an ingredient and returns a string without measurement units.
+    measurment_types = ['teaspoons','tablespoons','pounds','ounces','pints','milliliters','liters','kilograms','grams','cups','teaspoon','tablespoon','pound','ounce','pint','milliliter','liter','kilogram','gram','cup']
+    for mUnit in measurment_types:
+        #Handles the base case of there being a measurement unit in the passed string.
+        if mUnit in ingredient:
+            return ingredient[(ingredient.rfind(mUnit)+len(mUnit)+1):]
+        #Handles the case where the end up the measurement type list was reached and not added.
+        if mUnit == measurment_types[len(measurment_types)-1]:
+            #Handles the case of there being no numbers in ingredient description and no formating is needed.
+            if ingredient.isalpha():
+                return ingredient
+            #Handles case of there being a number in the string.
+            return ingredient[(ingredient.find(" ")+1):]
+
+
 #Driver Code:
     
 r1 = Recipe("Easy Basic Pancakes",5,5,5,
@@ -96,3 +104,5 @@ cookbook.add_recipe(r2)
 
 for x in cookbook.recommend_recipes(["all-puropse flour", "sugar", "baking powder"], 1):
     print(x.name)
+
+
