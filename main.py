@@ -24,6 +24,8 @@ class Recipe:
                     #Handles case of there being a number in the string.
                    ingr_no_meas.append(x[(x.find(" ")+1):])
         self.ingr_no_meas = ingr_no_meas
+    def num_ingredients(self):
+        return len(self.ingr)
 
     def list_ingredients(self):
         #Prints a list of ingredients in the recipe.
@@ -45,74 +47,37 @@ class CookBook:
     #Cookbook Object:
     def __init__(self):
         self.recipes = []
-        self.all_ingredients = None
+        self.all_ingredients = []
 
     def add_recipe(self, new_recipe):
         #Adds the new recipe to a master list and adds the ingredients from the recipe to a master list.
         self.recipes.append(new_recipe)
+        
         for x in new_recipe.ingr_no_meas:
-            if self.all_ingredients is None:
-                self.all_ingredients = Node(x)
-            else:
-                binary_insert(self.all_ingredients, Node(x))
+            if x not in self.all_ingredients:
+                self.all_ingredients.append(x)
 
     def print_all_ingredients(self):
         #Prints a list of all the ingredients from all of the recipes in the cookbook and the amount of times they occur.
-        in_order_print(self.all_ingredients)
+        for x in self.all_ingredients:
+            print(x)
 
 
     def print_num_recipes(self):
         print(len(self.recipes))
         
 
-class Node:
-    #Node For BST. Used to keep track of master ingredient list.
-    def __init__(self, val):
-        self.Left = None
-        self.Right = None
-        self.data = val
-        self.counter = 1
-        
-    def inc_counter(self):
-        #Increases the node's counter. Method is called when there is a duplicate node in the tree.
-        self.counter = self.counter + 1
-
-    def dec_counter(self):
-        #Decreases the node's counter. Method is called when removing a node.
-        self.counter = counter - 1
-    
-    def print_node(self):
-        #Prints an individual Node. (Meant for bug testing, BST is printed by in_order_print().)
-        print(self.data + self.counter)
-        
-def binary_insert(root, Node):
-    #Inserts elements into BST. Calls inc_counter() when duplicate entry is found.
-    if root is None:
-        root = Node
-    else:
-        if Node.data == root.data:
-            root.inc_counter()
-        else:
-            if root.data > Node.data:
-                if root.Left is None:
-                    root.Left = Node
-                else:
-                    binary_insert(root.Right, Node)
-            else:
-                if root.Right is None:
-                    root.Right = Node
-                else:
-                    binary_insert(root.Right, Node)
-
-def in_order_print(root):
-    #Prints BST using In Order Traversal.
-    if not root:
-        return
-    in_order_print(root.Left)
-    print(root.data +' (' + str(root.counter) + ')')
-    in_order_print(root.Right)
-
-
+    def recommend_recipes(self, on_hand_ingredients, percentage):
+        #Takes a list of on hand ingredients and a percentage and returns a list of recipes that is greater than or equal to the percentage of ingredients on hand.
+        returned_recipes = []
+        for recipe in self.recipes:
+            counter = 0
+            for ingredient in recipe.ingr_no_meas:
+                if ingredient in on_hand_ingredients:
+                    counter = counter + 1
+            if (counter / recipe.num_ingredients()) >= (percentage / 100):
+                returned_recipes.append(recipe)
+        return returned_recipes
 
 
 #Driver Code:
@@ -129,4 +94,5 @@ cookbook = CookBook()
 cookbook.add_recipe(r1)
 cookbook.add_recipe(r2)
 
-cookbook.print_all_ingredients()
+for x in cookbook.recommend_recipes(["all-puropse flour", "sugar", "baking powder"], 1):
+    print(x.name)
